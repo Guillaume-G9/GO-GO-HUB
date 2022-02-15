@@ -24,11 +24,7 @@ async function chaptTitle(){
                 <button class="link"><a href="${video.attributes.url}">Visiter</button>
             </div>`
         })
-    }
-
-    /* console.log(response.data[2].attributes.title);
-    chTitle.innerHTML = txt; */
-
+}
 
 chaptTitle()
 

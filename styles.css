@@ -73,10 +73,10 @@ main input {
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
+    margin-bottom: 15%;
 }
 
 .text-box button {
-    margin-top: 15%;
     color: white;
     width: 10vw;
     padding: 6% 6% 6% 6%;
