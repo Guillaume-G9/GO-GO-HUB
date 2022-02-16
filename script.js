@@ -1,23 +1,20 @@
 const searchBar = document.getElementById('searchBar');
 const chTitle = document.querySelector('.container')
+let arrayAPI = [];
 
 
 async function chaptTitle(){
     let rep = await fetch('https://strapi-gogokodo.herokuapp.com/api/sources', { method: 'GET' });
     let response = await rep.json();
+    arrayAPI = response.data 
+    display(arrayAPI) 
+}
 
+chaptTitle();
 
-    // console.log(response.data)
-    // for (let i=0; i<response.data.length; i++) {
-    //     chTitle.innerHTML += `
-    //     <div class="text-box">
-    //         <h4 class="title">${response.data[i].attributes.title}</h4>
-    //         <button class="link"><a href="${response.data[i].attributes.url}">Visiter</button>
-    //     </div>
-    //     `;
-
-
-    response.data.map(video => {
+function display(array) {
+    chTitle.innerHTML = ""
+    array.map(video => {
             chTitle.innerHTML += `
             <div class="text-box">
                 <h4 class="title">${video.attributes.title}</h4>
@@ -26,5 +23,12 @@ async function chaptTitle(){
         })
 }
 
-chaptTitle()
 
+searchBar.addEventListener('keyup', (event) => {
+    let input = event.target.value.toLowerCase();
+    const filter = arrayAPI.filter(liens => {
+        return (liens.attributes.category.toLowerCase().includes(input) || liens.attributes.title.toLowerCase().includes(input)
+        )
+    })
+    display(filter)
+})
