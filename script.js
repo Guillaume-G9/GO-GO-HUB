@@ -10,6 +10,8 @@ async function chaptTitle(){
     display(arrayAPI) 
 }
 
+
+
 chaptTitle();
 
 function display(array) {
@@ -18,7 +20,7 @@ function display(array) {
             chTitle.innerHTML += `
             <div class="text-box">
                 <h4 class="title">${video.attributes.title}</h4>
-                <button class="link"><a href="${video.attributes.url}">Visiter</button>
+                <button class="link"><a target="blank" href="${video.attributes.url}">Visiter</button>
             </div>`
         })
 }
